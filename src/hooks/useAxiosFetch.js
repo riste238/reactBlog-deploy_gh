@@ -13,10 +13,13 @@ const useAxiosFetch = (dataUrl) => {
 
         const fetchData = async (url) => {
             setIsLoading(true)
+
             try {
-                const response = await axios.get(url, {
-                    cancelToken: source.token
-                });
+               const response =  await axios.get(url,
+                 {
+                        cancelToken: source.token
+                    })
+
                 if (isMounted) {
                     setData(response.data)
                     setFetchError(null)
@@ -33,6 +36,7 @@ const useAxiosFetch = (dataUrl) => {
             }
         }
 
+        // fetchData(dataUrl)
         fetchData(dataUrl)
 
         // it's a closure function
